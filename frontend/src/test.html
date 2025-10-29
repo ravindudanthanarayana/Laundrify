@@ -1,0 +1,41 @@
+/* --- Center the header pill --- */
+.navbar-container{
+  position: sticky;     /* stays on top when scrolling */
+  top: 12px;
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* <— center the pill */
+  padding: 0 12px;         /* small side breathing room */
+}
+
+/* The pill itself */
+.navbar{
+  /* keep your existing background, blur, radius, etc. */
+  width: min(1160px, 100%);        /* cap the width */
+  max-width: 1160px;
+  margin: 0 auto;                  /* <— center horizontally */
+  padding: 10px 18px;              /* nice internal spacing */
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-radius: 999px;            /* fully rounded pill */
+  /* keep your shadows/gradients from before */
+}
+
+/* brand, links, cta alignment */
+.navbar-brand{ display:flex; align-items:center; gap:12px; }
+.navbar-nav{
+  display:flex;
+  align-items:center;
+  gap: 18px;
+  margin-left: auto;               /* brand left, links push right inside the pill */
+}
+
+/* keep CTA at the right edge nicely */
+.nav-item .cta-button{ margin-left: 8px; }
+
+/* when scrolled, don’t shift left: the whole pill remains centered */
+.navbar-container.scrolled .navbar{
+  transform: translateY(0); /* (if you had any translate on scroll, neutralize it) */
+}
